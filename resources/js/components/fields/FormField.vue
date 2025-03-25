@@ -3,7 +3,7 @@
     <template #field>
       <div :class="{'px-8 pt-6': field.fullSize}">
         <gallery slot="value" ref="gallery" v-if="hasSetInitialValue"
-                 v-model="value" :editable="!field.readonly" :removable="field.removable" custom-properties :field="field" :multiple="field.multiple" :uploads-to-vapor="field.uploadsToVapor"
+                 v-model="value" :editable="!field.readonly && field.editable" :removable="!field.readonly && field.removable" custom-properties :field="field" :multiple="field.multiple" :uploads-to-vapor="field.uploadsToVapor"
                  :has-error="hasError" :first-error="firstError"/>
 
         <div v-if="field.existingMedia">

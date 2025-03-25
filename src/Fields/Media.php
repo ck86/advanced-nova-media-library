@@ -37,6 +37,27 @@ class Media extends Field
 
     public $meta = ['type' => 'media'];
 
+    public function __construct($name, $attribute = null, callable $resolveCallback = null)
+    {
+        parent::__construct($name, $attribute, $resolveCallback);
+
+        $this->withMeta([
+            'type' => 'media',
+            'editable' => true,
+            'removable' => true,
+        ]);
+    }
+
+    public function removable(bool $removable): self
+    {
+        return $this->withMeta(compact('removable'));
+    }
+
+    public function editable(bool $editable): self
+    {
+        return $this->withMeta(compact('editable'));
+    }
+
     public function serializeMediaUsing(callable $serializeMediaUsing): self
     {
         $this->serializeMediaCallback = $serializeMediaUsing;

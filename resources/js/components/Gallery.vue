@@ -13,7 +13,7 @@
       <template #item="{element, index}">
         <div style="float:left; margin-right: 1em;">
           <component :is="singleComponent" class="mb-3 p-3 mr-3"
-                     :key="index" :image="element" :field="field" :editable="editable" :removable="removable || editable" @remove="remove(index)"
+                     :key="index" :image="element" :field="field" :editable="editable" :removable="removable" @remove="remove(index)"
                      :is-custom-properties-editable="customProperties && customPropertiesFields.length > 0"
                      @edit-custom-properties="customPropertiesImageIndex = index"
                      @crop-start="cropImageQueue.push($event)"
